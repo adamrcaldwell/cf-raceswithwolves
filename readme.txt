@@ -1,0 +1,3 @@
+I added an element of danger to the race game that was built in class. It also cuts down on the length of the race. If so many turns pass after the race begins, night will fall, and a wolf will enter the race. The wolf cannot be distracted and will eat the first animal it catches up with, allowing the other to win by default.
+
+Credit is due to Brook and the rest of the class since I built this onto the framework we designed.

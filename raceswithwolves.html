@@ -1,0 +1,51 @@
+<script>
+
+function Animal(name, speed, focus, position) {
+  this.name = name;
+  this.speed = speed;
+  this.focus = focus;
+  this.position = position;
+  this.isFocused = function() {
+    return Math.floor(Math.random() * 10) < this.focus;
+  }
+  this.advance = function() {
+    if(this.isFocused()) {
+      this.position += this.speed;
+    } 
+  }
+  this.progressReport = function() {
+    return this.name + " is at: " + this.position
+  }
+}
+
+var rabbit = new Animal("Rocky", 10, 2, 0);
+var turtle = new Animal("Leonardo", 3, 8, 0);
+var wolf = new Animal("Fido", 10, 10, -50)
+
+
+var meters = 100;
+var timeUntilNight = 15;
+
+while (rabbit.position < meters && turtle.position < meters) {
+  rabbit.advance();
+  turtle.advance();
+  timeUntilNight--;
+  alert(rabbit.progressReport() + " -- " + turtle.progressReport());
+  if (timeUntilNight <= 0) {
+    wolf.advance();
+    alert(wolf.progressReport());
+  }
+  if (wolf.position >= rabbit.position) {
+    alert(rabbit.name + " has been eaten by " + wolf.name + "!")
+    break;
+  }
+  else if (wolf.position >= turtle.position) {
+    alert(turtle.name + " has been eaten by " + wolf.name + "!")
+    break;
+  }
+}
+
+
+// If so many turns pass, it becomes night, and a wolf enters the race. The wolf has max focus and speed, and when it catches up the animal is eaten.
+
+</script>
